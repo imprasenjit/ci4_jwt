@@ -6,24 +6,24 @@ use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
-
+use Config\Services;
 /**
- * Class BaseController
+ * Class Basecontroller
  *
- * BaseController provides a convenient place for loading components
+ * Basecontroller provides a convenient place for loading components
  * and performing functions that are needed by all your controllers.
  * Extend this class in any new controllers:
- *     class Home extends BaseController
+ *     class Home extends Basecontroller
  *
  * For security be sure to declare any new methods as protected or private.
  */
 
-class BaseController extends Controller
+class Basecontroller extends Controller
 {
 	/**
 	 * An array of helpers to be loaded automatically upon
 	 * class instantiation. These helpers will be available
-	 * to all other controllers that extend BaseController.
+	 * to all other controllers that extend Basecontroller.
 	 *
 	 * @var array
 	 */
@@ -45,5 +45,13 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
+		// load layout helper
+		helper('layout_helper');
+
+		// start session
+		$this->session = Services::session();
+
+		// load database connection
+		$this->db = db_connect();
 	}
 }

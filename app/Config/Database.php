@@ -16,6 +16,7 @@ class Database extends Config
 	 * @var string
 	 */
 	public $filesPath = APPPATH . 'Database' . DIRECTORY_SEPARATOR;
+	
 
 	/**
 	 * Lets you choose which connection group to
@@ -33,9 +34,9 @@ class Database extends Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
-		'username' => '',
+		'username' => 'root',
 		'password' => '',
-		'database' => '',
+		'database' => 'ci4_jwt',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
